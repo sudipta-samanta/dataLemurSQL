@@ -1,0 +1,6 @@
+-- Q: https://datalemur.com/questions/second-day-confirmation
+
+SELECT user_id FROM emails e JOIN texts t 
+ON e.email_id = t.email_id
+WHERE t.signup_action = 'Confirmed'
+AND DATE_PART('day', action_date) - DATE_PART('day', signup_date) = 1 ;
